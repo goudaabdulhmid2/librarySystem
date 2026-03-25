@@ -18,8 +18,7 @@ public class Book implements BookInterface {
     public void borrowBook(User user) {
         if (isAvailable) {
             isAvailable = false;
-            System.out.println(user.getName() + " borrowed " + title + " for " + getBorrowDays() + " days.");
-
+            System.out.println(user.getName() + " borrowed " + title + ".");
         } else {
             System.out.println(title + " is not available.");
         }
