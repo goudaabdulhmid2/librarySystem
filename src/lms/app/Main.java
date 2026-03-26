@@ -1,3 +1,21 @@
+package lms.app;
+
+import lms.approval.Approver;
+import lms.approval.Director;
+import lms.approval.Librarian;
+import lms.approval.Manager;
+import lms.adapter.BookJsonAdapter;
+import lms.adapter.ExternalBookData;
+import lms.decorator.PremiumBook;
+import lms.facade.BorrowFacade;
+import lms.factory.BookFactory;
+import lms.factory.DefaultBookFactory;
+import lms.model.Book;
+import lms.model.BookInterface;
+import lms.model.EBook;
+import lms.model.User;
+import lms.service.LibraryService;
+
 public class Main {
     public static void main(String[] args) {
         LibraryService AlexLibrary = LibraryService.getInstance();// Singleton
@@ -10,7 +28,15 @@ public class Main {
         BookInterface premiumBook = new PremiumBook(book);
         AlexLibrary.addBook(premiumBook);
 
+        Book headOfFirstBook = new Book("Head First Design Patterns");
+        AlexLibrary.addBook(headOfFirstBook);
+
         User user = new User("John", true);
+        User sara = new User("Sara", false);
+        headOfFirstBook.addObserver(user);
+        headOfFirstBook.addObserver(sara);
+        headOfFirstBook.borrowBook(user);
+        headOfFirstBook.returnBook();
 
         BookInterface premiumEBook = new PremiumBook(new EBook("Java 101"));
         System.out.println("Premium EBook period: " + premiumEBook.getBorrowDays() + " days.");

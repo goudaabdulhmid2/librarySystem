@@ -1,11 +1,16 @@
-public class User {
+package lms.model;
+
+import lms.observer.Observer;
+
+public class User implements Observer {
     private String name;
     private boolean isPremium;
+
     public User(String name) {
         this.name = name;
     }
 
-    public User( String name,boolean isPremium) {
+    public User(String name, boolean isPremium) {
         this.isPremium = isPremium;
         this.name = name;
     }
@@ -26,5 +31,9 @@ public class User {
         isPremium = premium;
     }
 
+    @Override
+    public void update(String message) {
+        System.out.println(name + " received notification: " + message);
+    }
 
 }

@@ -1,3 +1,9 @@
+package lms.facade;
+
+import lms.approval.Approver;
+import lms.model.User;
+import lms.service.LibraryService;
+
 public class BorrowFacade {
     private LibraryService libraryService;
     private Approver approver;

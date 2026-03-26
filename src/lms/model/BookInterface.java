@@ -1,3 +1,5 @@
+package lms.model;
+
 public interface BookInterface {
      String getTitle();
 

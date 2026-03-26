@@ -1,3 +1,8 @@
+package lms.decorator;
+
+import lms.model.BookInterface;
+import lms.model.User;
+
 public abstract class BookDecorator implements BookInterface {
     protected BookInterface book;
 

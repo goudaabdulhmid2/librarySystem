@@ -1,5 +1,10 @@
+package lms.service;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import lms.model.BookInterface;
+import lms.model.User;
 
 public class LibraryService {
     private static LibraryService instance;

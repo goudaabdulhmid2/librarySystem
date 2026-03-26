@@ -1,3 +1,5 @@
+package lms.model;
+
 public class PhysicalBook extends Book{
 
     public PhysicalBook(String title) {

@@ -1,3 +1,5 @@
+package lms.model;
+
 public class HistoricalBook extends Book {
     public HistoricalBook(String title) {
         super(title);

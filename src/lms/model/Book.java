@@ -1,10 +1,37 @@
-public class Book implements BookInterface {
+package lms.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lms.observer.Observer;
+import lms.observer.Subject;
+
+public class Book implements BookInterface, Subject {
     private String title;
     private boolean isAvailable;
+    private List<Observer> observers = new ArrayList<>();
 
     public Book(String title) {
         this.title = title;
         this.isAvailable = true;
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+        for (Observer observer : observers) {
+            observer.update(message);
+        }
+
     }
 
     public boolean isAvailable() {
@@ -27,6 +54,7 @@ public class Book implements BookInterface {
     public void returnBook() {
         isAvailable = true;
         System.out.println(title + " has been returned.");
+        notifyObservers(title + " is now available.");
     }
 
     public int getBorrowDays() {

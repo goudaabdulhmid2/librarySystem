@@ -1,8 +1,10 @@
+package lms.adapter;
+
 public class ExternalBookData {
     private String bookTitle;
     private String type;
 
-    ExternalBookData(String bookTitle, String type) {
+    public ExternalBookData(String bookTitle, String type) {
         this.bookTitle = bookTitle;
         this.type = type;
     }

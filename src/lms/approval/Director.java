@@ -1,3 +1,5 @@
+package lms.approval;
+
 public class Director extends Approver {
     @Override
     public void approve(int days) {

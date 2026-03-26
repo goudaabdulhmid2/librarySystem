@@ -1,3 +1,5 @@
+package lms.model;
+
 public class EBook extends Book {
 
     public EBook(String title) {

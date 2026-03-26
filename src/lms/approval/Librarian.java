@@ -1,3 +1,5 @@
+package lms.approval;
+
 public class Librarian extends Approver {
     @Override
     public void approve(int days) {
