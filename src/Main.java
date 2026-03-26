@@ -12,9 +12,6 @@ public class Main {
 
         User user = new User("John", true);
 
-        AlexLibrary.borrowBook("Clean Code", user);
-        System.out.println("Borrow period: " + premiumBook.getBorrowDays() + " days.");
-
         BookInterface premiumEBook = new PremiumBook(new EBook("Java 101"));
         System.out.println("Premium EBook period: " + premiumEBook.getBorrowDays() + " days.");
 
@@ -27,6 +24,11 @@ public class Main {
         librarian.approve(5); // Approved by Librarian
         librarian.approve(10); // Approved by Manager
         librarian.approve(20); // Approved by Director
+
+        BorrowFacade borrowFacade = new BorrowFacade(AlexLibrary, librarian);
+        borrowFacade.borrowBook("Harry Potter", user, 5); // Approved by Librarian
+        borrowFacade.borrowBook("Lord of the Rings", user, 10); // Approved by Manager
+        borrowFacade.borrowBook("Clean Code", user, 20); // Approved by Director
 
     }
 }
