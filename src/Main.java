@@ -30,5 +30,13 @@ public class Main {
         borrowFacade.borrowBook("Lord of the Rings", user, 10); // Approved by Manager
         borrowFacade.borrowBook("Clean Code", user, 20); // Approved by Director
 
+        ExternalBookData externalData = new ExternalBookData("Effective Java", "ebook");
+        BookJsonAdapter adapter = new BookJsonAdapter();
+        BookInterface adaptedBook = adapter.adapt(externalData);
+        AlexLibrary.addBook(adaptedBook);
+        borrowFacade.borrowBook("Effective Java", user, 14); // Approved by Manager
+        System.out.println("Adapted title: " + adaptedBook.getTitle());
+        System.out.println("Adapted borrow days: " + adaptedBook.getBorrowDays());
+
     }
 }
